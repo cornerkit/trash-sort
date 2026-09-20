@@ -637,31 +637,50 @@
    Responsive
    ══════════════════ */
 @media (max-width: 720px) {
-  .app { padding: 0 12px 20px; gap: 10px; }
+  .app { padding: 0 16px 20px; gap: 10px; }
 
-  .start-title { font-size: 2rem; }
-  .start-zh { font-size: 1.5rem; }
-  .scatter-icon { width: 30px; height: 30px; border-radius: 7px; }
+  .start-title { font-size: 2.2rem; }
+  .start-zh { font-size: 1.8rem; }
+  .start-desc { font-size: 1.05rem; }
+  .start-btn { font-size: 1.1rem; padding: 14px 40px; }
+  .scatter-icon { width: 32px; height: 32px; border-radius: 8px; }
+
+  .app-desc { font-size: 0.9rem; }
+  .subtitle { font-size: 0.95rem; }
 
   .apps-icons { gap: 8px; height: 80px; }
-  .app-item__face { width: 40px; height: 40px; border-radius: 10px; }
-  .app-item--active .app-item__face { width: 52px; height: 52px; }
-  .app-item:not(.app-item--active) .app-item__face { width: 36px; height: 36px; }
-  .app-item__name { font-size: 0.5rem; }
+  .app-item__face { width: 44px; height: 44px; border-radius: 11px; }
+  .app-item--active .app-item__face { width: 60px; height: 60px; border-radius: 14px; }
+  .app-item:not(.app-item--active) .app-item__face { width: 34px; height: 34px; }
+  .app-item__name { font-size: 0.6rem; }
+  .app-item--active .app-item__name { font-size: 0.75rem; }
 
-  .bins-row { gap: 8px; flex-wrap: wrap; padding-bottom: 20px; }
-  .bin-svg { width: 90px; }
-  .bin__name { font-size: 0.6rem; }
-  .bin__zh { font-size: 0.5rem; max-width: 80px; }
-  .bin__labels { min-height: 36px; }
-
-  .guide__text { font-size: 0.75rem; }
+  .guide__text { font-size: 0.9rem; }
   .guide__arrow { height: 40px; }
 
-  .cook-scene { width: 260px; height: 150px; }
+  .bins-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 16px;
+    padding-bottom: 20px;
+    justify-items: center;
+  }
+  .bin-svg { width: 100px; }
+  .bin__name { font-size: 0.72rem; }
+  .bin__zh { font-size: 0.62rem; max-width: 90px; }
+  .bin__labels { min-height: 36px; }
 
-  .result-screen { padding: 24px 0; gap: 18px; }
-  .result-title { font-size: 1.5rem; }
-  .meter-value { font-size: 1.6rem; }
-  .result-desc p { font-size: 0.85rem; }
+  .toast { font-size: 0.95rem; }
+
+  .cook-scene { width: 280px; height: 160px; }
+  .cook-text { font-size: 1.05rem; }
+
+  .result-screen { padding: 24px 0; gap: 20px; }
+  .result-subtitle { font-size: 0.9rem; }
+  .result-title { font-size: 1.6rem; }
+  .meter-value { font-size: 3rem; }
+  .meter-level { font-size: 1.1rem; }
+  .result-desc p { font-size: 0.95rem; }
+  .breakdown-buckets { gap: 16px; }
+  .restart-btn { font-size: 1rem; padding: 14px 36px; }
 }
