@@ -169,6 +169,7 @@ function App() {
               开始检测
             </button>
             <p className="start-note">{trashItems.length} 款AI · 6 个泔水桶 · 1 份诊断报告</p>
+            <p className="start-credit">CC 嘘嘘鲸鱼制作</p>
           </div>
         </div>
       )}
@@ -313,7 +314,7 @@ function App() {
       {/* ── Result ── */}
       {phase === 'result' && diagnosis && (
         <div className="result-screen">
-          <p className="result-subtitle">你的泔水浓度为</p>
+          <p className="result-subtitle">你的AI泔水浓度为</p>
           <div className="result-meter">
             <div className="meter-hero">
               <span className="meter-value">{slopScore}</span>
@@ -360,7 +361,19 @@ function App() {
             </div>
           </div>
 
-          <button className="restart-btn" onClick={restart}>再测一次</button>
+          <div className="result-actions">
+            <button className="restart-btn" onClick={restart}>再测一次</button>
+            <button className="share-btn" onClick={() => {
+              const text = `我的AI泔水浓度是${slopScore}，被诊断为「${diagnosis.zh}」——${diagnosis.level}！你呢？`
+              const url = window.location.href
+              if (navigator.share) {
+                navigator.share({ title: 'AI泔水浓度测试', text, url })
+              } else {
+                navigator.clipboard.writeText(`${text}\n${url}`)
+                alert('已复制到剪贴板，快去分享吧！')
+              }
+            }}>发给朋友</button>
+          </div>
           <p className="result-footer">我们不生产泔水，我们只是泔水的搬运工。</p>
         </div>
       )}
