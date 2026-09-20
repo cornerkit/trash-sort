@@ -3,6 +3,11 @@ import { bins, trashItems, diagnoses, loadingMessages } from './data'
 import BinSVG from './BinSVG'
 import './App.css'
 
+// GA event helper
+const track = (event, params) => {
+  if (window.gtag) window.gtag('event', event, params)
+}
+
 function App() {
   const [queue, setQueue] = useState([...trashItems])
   const [results, setResults] = useState({})
@@ -30,6 +35,7 @@ function App() {
     setExiting(true)
     setResults(r => ({ ...r, [current.id]: binId }))
     const binData = bins.find(b => b.id === binId)
+    track('sort_app', { app: current.name, bucket: binData.zh, progress: trashItems.length - queue.length + 1 })
     clearTimeout(feedbackTimer.current)
     setFeedback({ binId, zh: binData.zh })
     setTimeout(() => {
@@ -95,7 +101,7 @@ function App() {
       const p = Math.min(elapsed / duration, 1)
       setRecycleProgress(p)
       if (p < 1) requestAnimationFrame(tick)
-      else { clearInterval(msgInterval); setTimeout(() => setPhase('result'), 500) }
+      else { clearInterval(msgInterval); track('test_complete'); setTimeout(() => setPhase('result'), 500) }
     }
     requestAnimationFrame(tick)
     return () => clearInterval(msgInterval)
@@ -163,6 +169,7 @@ function App() {
             <p className="start-zh">测测你的AI泔水浓度</p>
             <p className="start-desc">每天喝了多少AI泔水，心里没点数？</p>
             <button className="start-btn" onClick={() => {
+              track('game_start')
               setExiting(true)
               setTimeout(() => { setExiting(false); setPhase('play') }, 600)
             }}>
@@ -364,6 +371,7 @@ function App() {
           <div className="result-actions">
             <button className="restart-btn" onClick={restart}>再测一次</button>
             <button className="share-btn" onClick={() => {
+              track('share', { score: slopScore, result: diagnosis.zh })
               const text = `我的AI泔水浓度是${slopScore}，被诊断为「${diagnosis.zh}」——${diagnosis.level}！你呢？`
               const url = window.location.href
               if (navigator.share) {
