@@ -123,9 +123,10 @@ function App() {
     setDragging(false)
   }
 
+  const base = import.meta.env.BASE_URL
   const renderIcon = (item) => (
     <img
-      src={`/icons/${item.icon}.png`}
+      src={`${base}icons/${item.icon}.png`}
       alt={item.name}
       className={`app-icon-img ${item.fill ? 'app-icon-img--fill' : ''}`}
     />
@@ -152,7 +153,7 @@ function App() {
                     '--delay': `${i * 0.04}s`,
                   }}
                 >
-                  <img src={`/icons/${item.icon}.png`} alt={item.name} className={item.fill ? 'app-icon-img--fill' : ''} />
+                  <img src={`${base}icons/${item.icon}.png`} alt={item.name} className={item.fill ? 'app-icon-img--fill' : ''} />
                 </div>
               )
             })}
@@ -281,7 +282,7 @@ function App() {
                   return (
                     <g key={app.id} className={`trash-float trash-float--${(i % 6) + 1}`}>
                       <rect x={x - 14} y={y - 14} width="28" height="28" rx="6" fill={app.bg} />
-                      <image href={`/icons/${app.icon}.png`} x={x - 14} y={y - 14} width="28" height="28" style={{ clipPath: 'inset(0 round 6px)' }} />
+                      <image href={`${base}icons/${app.icon}.png`} x={x - 14} y={y - 14} width="28" height="28" style={{ clipPath: 'inset(0 round 6px)' }} />
                     </g>
                   )
                 })}
