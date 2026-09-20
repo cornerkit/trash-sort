@@ -457,10 +457,10 @@
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 48px 0 40px;
+  padding: 28px 0 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
   animation: result-in 0.5s cubic-bezier(.34,1.56,.64,1);
 }
 
@@ -484,7 +484,7 @@
 
 .result-title {
   font-family: 'Noto Sans SC', sans-serif;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 900;
   margin: 0;
   line-height: 1.2;
@@ -505,7 +505,7 @@
 }
 
 .meter-value {
-  font-size: 4rem;
+  font-size: 3.2rem;
   font-weight: 900;
   line-height: 1;
 }
@@ -536,13 +536,13 @@
 .result-desc {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
 }
 
 .result-desc p {
   font-family: 'Noto Sans SC', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.5;
   color: var(--text);
   margin: 0;
 }
@@ -574,13 +574,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
-  margin-bottom: 2px;
+  gap: 2px;
+  margin-bottom: 1px;
 }
 
 .breakdown-app-icon {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 7px;
   background: var(--icon-color);
   display: flex;
